@@ -17,7 +17,9 @@ class MusicAdapter(private val dataset: List<MusicInfo>, private val openDetails
             }
             binding.tvMusicTitle.text = currentElement.trackName
             binding.tvMusicAuthor.text = currentElement.artistName
-            Picasso.Builder(binding.tvMusicAuthor.context).build().load(currentElement.artworkUrl60).into(binding.ivMusicCover)
+            binding.tvMusicPrice.text = currentElement.trackPrice.toString()
+            binding.tvMusicCurrency.text = currentElement.currency
+            Picasso.Builder(binding.tvMusicAuthor.context).build().load(currentElement.artworkUrl100.replace("100x100bb.jpg","250x250bb.jpg")).into(binding.ivMusicCover)
             // get Picasso Dependency, do the Picasso.Builder().load().into(binding.ivCoverBook)
         }
     }

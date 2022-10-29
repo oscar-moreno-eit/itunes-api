@@ -25,10 +25,11 @@
             android:layout_height="wrap_content"
             android:lines="2"
             android:ellipsize="end"
-            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_marginStart="8dp"
+            style="@style/TextAppearance.Material3.TitleMedium"
             app:layout_constraintTop_toTopOf="@id/iv_music_cover"
             app:layout_constraintStart_toEndOf="@id/iv_music_cover"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_music_price"
             tools:text="The sound of madness (Deluxe version)"
             />
         <TextView
@@ -37,6 +38,8 @@
             android:layout_height="wrap_content"
             android:lines="2"
             android:ellipsize="end"
+            android:layout_marginStart="8dp"
+
             style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
             app:layout_constraintTop_toBottomOf="@id/tv_music_title"
             app:layout_constraintStart_toEndOf="@id/iv_music_cover"
@@ -51,9 +54,22 @@
             android:ellipsize="end"
             style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
             app:layout_constraintTop_toTopOf="@id/iv_music_cover"
+            app:layout_constraintEnd_toStartOf="@id/tv_music_currency"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="1.29"
+            />
+        <TextView
+            android:id="@+id/tv_music_currency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            app:layout_constraintTop_toTopOf="@id/iv_music_cover"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/iv_music_cover"
-            tools:text="1.29 USD"
+            tools:text="USD"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

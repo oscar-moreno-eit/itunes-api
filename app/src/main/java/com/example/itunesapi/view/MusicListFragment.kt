@@ -83,7 +83,7 @@ class MusicListFragment : Fragment() {
                 ,songItem.artistName
                 ,songItem.currency
                 ,songItem.previewUrl
-                ,songItem.artworkUrl60
+                ,songItem.artworkUrl100
                 ,songItem.trackPrice
             )
         }

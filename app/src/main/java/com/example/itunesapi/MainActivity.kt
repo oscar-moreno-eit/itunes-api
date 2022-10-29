@@ -1,8 +1,10 @@
 package com.example.itunesapi
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,10 +57,13 @@ class MainActivity : AppCompatActivity(), Communicator {
         setContentView(R.layout.activity_main)
 
         btnNavBar = findViewById(R.id.bnv_navigator)
+
         btnNavBar.setOnItemSelectedListener {
-            this.doSearch("rock")
+            this.doSearch(it.titleCondensed.toString().lowercase())
             true
         }
+        this.doSearch("rock")
+
         /*initViews()*/
 
         //doSearch("rock")

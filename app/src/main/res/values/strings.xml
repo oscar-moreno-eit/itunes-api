@@ -2,7 +2,6 @@
     <string name="app_name">Itunes API</string>
     <string name="tab_rock">Rock</string>
     <string name="tab_classic">Classic</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_classick">Classick</string>
     <string name="tab_pop">Pop</string>
 </resources>

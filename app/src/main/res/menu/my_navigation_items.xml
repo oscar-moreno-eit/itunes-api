@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <item android:id="@+id/action_search"
         android:title="@string/tab_rock"
-        android:icon="@drawable/ic_baseline_back_hand_24" />
+        android:titleCondensed="@string/tab_rock"
+        android:icon="@drawable/ic_baseline_back_hand_24"
+        />
     <item android:id="@+id/action_settings"
         android:title="@string/tab_classic"
+        android:titleCondensed="@string/tab_classick"
         android:icon="@drawable/ic_baseline_self_improvement_24" />
     <item android:id="@+id/action_navigation"
         android:title="@string/tab_pop"
+        android:titleCondensed="@string/tab_pop"
         android:icon="@drawable/ic_baseline_trending_up_24" />
 </menu>
