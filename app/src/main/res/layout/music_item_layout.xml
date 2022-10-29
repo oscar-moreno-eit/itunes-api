@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="4dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+        <ImageView
+            android:id="@+id/iv_music_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/ic_launcher_background"
+            />
+        <TextView
+            android:id="@+id/tv_music_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintTop_toTopOf="@id/iv_music_cover"
+            app:layout_constraintStart_toEndOf="@id/iv_music_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="The sound of madness (Deluxe version)"
+            />
+        <TextView
+            android:id="@+id/tv_music_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            app:layout_constraintTop_toBottomOf="@id/tv_music_title"
+            app:layout_constraintStart_toEndOf="@id/iv_music_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Shinedown"
+            />
+        <TextView
+            android:id="@+id/tv_music_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            app:layout_constraintTop_toTopOf="@id/iv_music_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_music_cover"
+            tools:text="1.29 USD"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
