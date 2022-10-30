@@ -1,15 +1,8 @@
 package com.example.itunesapi
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.itunesapi.databinding.ActivityMainBinding
 import com.example.itunesapi.model.remote.MusicNetwork
 import com.example.itunesapi.model.remote.MusicResponse
 import com.example.itunesapi.view.Communicator
@@ -122,13 +115,12 @@ class MainActivity : AppCompatActivity(), Communicator {
                     }
                 }
 
-                override fun onFailure(call: Call<MusicResponse>?, t: Throwable?) {
-                Log.v("retrofit", "call failed")
-            }
+                override fun onFailure(call: Call<MusicResponse>, t: Throwable) {
+                    Log.v("retrofit", "call failed")
+                }
 
 
-
-        })//execute - syncronous : enqueue - Asyncronous
+            })//execute - synchronous : enqueue - Asynchronous
     }
 
     override fun playPreview() {

@@ -1,7 +1,9 @@
 package com.example.itunesapi.view.adapter
 
+import android.media.AudioManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itunesapi.databinding.MusicItemLayoutBinding
 import com.example.itunesapi.model.remote.MusicInfo
@@ -19,8 +21,10 @@ class MusicAdapter(private val dataset: List<MusicInfo>, private val openDetails
             binding.tvMusicAuthor.text = currentElement.artistName
             binding.tvMusicPrice.text = currentElement.trackPrice.toString()
             binding.tvMusicCurrency.text = currentElement.currency
+            binding.vPreview.contentDescription = currentElement.previewUrl
+            //Replacing 100x100bb.jpg by 250x250bb.jpg gives you a better image resolution
             Picasso.Builder(binding.tvMusicAuthor.context).build().load(currentElement.artworkUrl100.replace("100x100bb.jpg","250x250bb.jpg")).into(binding.ivMusicCover)
-            // get Picasso Dependency, do the Picasso.Builder().load().into(binding.ivCoverBook)
+
         }
     }
 

@@ -1,14 +1,16 @@
 package com.example.itunesapi.view
 
 import android.content.Context
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.itunesapi.MainActivity
-import com.example.itunesapi.databinding.ActivityMainBinding
 import com.example.itunesapi.databinding.FragmentMusicListBinding
 import com.example.itunesapi.model.remote.MusicInfo
 import com.example.itunesapi.model.remote.MusicResponse
@@ -61,18 +63,56 @@ class MusicListFragment : Fragment() {
         arguments?.getParcelable<MusicResponse>(DISPLAY_MUSIC)?.let {
 
             updateAdapter(it)
+
+
         }
 
         return  binding.root
     }
 
+
+    private fun initViews() {
+        mediaPlayer = MediaPlayer()
+    }
+
+
+    lateinit var mediaPlayer: MediaPlayer
     private fun updateAdapter(dataSet: MusicResponse) {
 
         binding.rvMusicResult.adapter = MusicAdapter(parseListMusicInfo(dataSet)){
             // Trailing lambda
-            // Toast.makeText(context,"$it",Toast.LENGTH_SHORT).show()
+            // on below line we are setting audio stream
+            // type as stream music on below line.
+            /////////////////////////////////////////////mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+
+            // on below line we are running a try
+            // and catch block for our media player.
+            try {
+                //Stop any  other music in queue
+                mediaPlayer.reset()
+                // on below line we are setting audio
+                // source as audio url on below line.
+                mediaPlayer.setDataSource(it.previewUrl)
+
+                // on below line we are
+                // preparing our media player.
+                mediaPlayer.prepare()
+
+                // on below line we are
+                // starting our media player.
+                mediaPlayer.start()
+
+            } catch (e: Exception) {
+
+                // on below line we are handling our exception.
+                e.printStackTrace()
+            }
+            // on below line we are displaying a toast message as audio player.
+            Toast.makeText(context, "Audio started playing..", Toast.LENGTH_SHORT).show()
 
         }
+
+
     }
 
     private fun parseListMusicInfo(dataSet: MusicResponse): List<MusicInfo> {
@@ -87,26 +127,6 @@ class MusicListFragment : Fragment() {
                 ,songItem.trackPrice
             )
         }
-    }
-
-    private fun initViews() {
-
-
-        //bridge.doSearch( "rock" )
-
-
-        binding.rvMusicResult.setOnClickListener {
-
-            //todo Play preview
-            /*
-            if (binding.sbMaxResults.progress == 0) {binding.sbMaxResults.progress = 10}
-
-            bridge.doSearch(binding.tilBookSearch.editText?.text.toString()
-                ,binding.spFilter.selectedItem.toString()
-                ,binding.spBookType.selectedItem.toString()
-                ,binding.sbMaxResults.progress)*/
-        }
-
     }
 
 
