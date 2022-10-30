@@ -1,7 +1,6 @@
 package com.example.itunesapi.view
 
 import android.content.Context
-import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -76,8 +75,10 @@ class MusicListFragment : Fragment() {
     }
 
 
-    lateinit var mediaPlayer: MediaPlayer
+    private lateinit var mediaPlayer: MediaPlayer
     private fun updateAdapter(dataSet: MusicResponse) {
+
+
 
         binding.rvMusicResult.adapter = MusicAdapter(parseListMusicInfo(dataSet)){
             // Trailing lambda

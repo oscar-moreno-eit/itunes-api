@@ -3,6 +3,8 @@ package com.example.itunesapi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.view.get
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.itunesapi.model.remote.MusicNetwork
 import com.example.itunesapi.model.remote.MusicResponse
 import com.example.itunesapi.view.Communicator
@@ -45,16 +47,32 @@ class MainActivity : AppCompatActivity(), Communicator {
 
 
     private lateinit var btnNavBar: BottomNavigationView
+    private lateinit var str: SwipeRefreshLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         btnNavBar = findViewById(R.id.bnv_navigator)
+        str = findViewById(R.id.swipeContainer)
 
         btnNavBar.setOnItemSelectedListener {
             this.doSearch(it.titleCondensed.toString().lowercase())
             true
         }
+
+        str.setOnRefreshListener {
+            when(btnNavBar.selectedItemId){
+                R.id.it_rock -> this.doSearch("rock")
+                R.id.it_classic -> this.doSearch("classik")
+                R.id.it_pop -> this.doSearch("pop")
+            }
+
+
+
+            str.setRefreshing(false)
+        }
+
         this.doSearch("rock")
 
         /*initViews()*/

@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <item android:id="@+id/action_search"
+    <item android:id="@+id/it_rock"
         android:title="@string/tab_rock"
         android:titleCondensed="@string/tab_rock"
         android:icon="@drawable/ic_baseline_back_hand_24"
         />
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/it_classic"
         android:title="@string/tab_classic"
         android:titleCondensed="@string/tab_classick"
         android:icon="@drawable/ic_baseline_self_improvement_24" />
-    <item android:id="@+id/action_navigation"
+    <item android:id="@+id/it_pop"
         android:title="@string/tab_pop"
         android:titleCondensed="@string/tab_pop"
         android:icon="@drawable/ic_baseline_trending_up_24" />
