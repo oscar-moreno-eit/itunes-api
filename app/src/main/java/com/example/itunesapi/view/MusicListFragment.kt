@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.itunesapi.MainActivity
 import com.example.itunesapi.databinding.FragmentMusicListBinding
 import com.example.itunesapi.model.remote.MusicInfo
@@ -53,7 +52,6 @@ class MusicListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_music_list, container, false)
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentMusicListBinding.inflate(inflater,container,false )
 
@@ -84,10 +82,9 @@ class MusicListFragment : Fragment() {
             // Trailing lambda
             // on below line we are setting audio stream
             // type as stream music on below line.
-            /////////////////////////////////////////////mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+            // MediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC) -> Deprecated
 
-            // on below line we are running a try
-            // and catch block for our media player.
+            // on below line we are running a try and catch block for our media player.
             try {
                 //Stop any  other music in queue
                 mediaPlayer.reset()
@@ -108,11 +105,8 @@ class MusicListFragment : Fragment() {
                 // on below line we are handling our exception.
                 e.printStackTrace()
             }
-            // on below line we are displaying a toast message as audio player.
-            Toast.makeText(context, "Audio started playing..", Toast.LENGTH_SHORT).show()
 
         }
-
 
     }
 
@@ -129,7 +123,5 @@ class MusicListFragment : Fragment() {
             )
         }
     }
-
-
 
 }

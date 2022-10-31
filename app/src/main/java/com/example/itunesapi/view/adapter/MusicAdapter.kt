@@ -1,15 +1,12 @@
 package com.example.itunesapi.view.adapter
 
-import android.media.AudioManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itunesapi.databinding.MusicItemLayoutBinding
 import com.example.itunesapi.model.remote.MusicInfo
 import com.squareup.picasso3.Picasso
 
-// TODO: dataset needs to do mutable
 class MusicAdapter(private val dataset: List<MusicInfo>, private val openDetails: (MusicInfo) -> Unit) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     class MusicViewHolder(private val binding: MusicItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
@@ -27,8 +24,6 @@ class MusicAdapter(private val dataset: List<MusicInfo>, private val openDetails
 
         }
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicViewHolder {
         return MusicViewHolder(MusicItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))

@@ -25,12 +25,10 @@ object MusicNetwork {
     }
 
     private fun initRetrofit(): Retrofit {
-        val retrofitObject = Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return  retrofitObject
     }
-
 
 }
