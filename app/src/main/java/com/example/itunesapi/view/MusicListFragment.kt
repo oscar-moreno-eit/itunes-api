@@ -1,7 +1,9 @@
 package com.example.itunesapi.view
 
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -76,36 +78,38 @@ class MusicListFragment : Fragment() {
     private lateinit var mediaPlayer: MediaPlayer
     private fun updateAdapter(dataSet: MusicResponse) {
 
-
+        var intent = Intent(Intent.ACTION_VIEW)
 
         binding.rvMusicResult.adapter = MusicAdapter(parseListMusicInfo(dataSet)){
-            // Trailing lambda
+
+            intent.setDataAndType(Uri.parse(it.previewUrl),"audio/*")
+            startActivity(intent)
+            //region Playing music using Media Player object
             // on below line we are setting audio stream
             // type as stream music on below line.
             // MediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC) -> Deprecated
-
             // on below line we are running a try and catch block for our media player.
-            try {
-                //Stop any  other music in queue
-                mediaPlayer.reset()
-                // on below line we are setting audio
-                // source as audio url on below line.
-                mediaPlayer.setDataSource(it.previewUrl)
-
-                // on below line we are
-                // preparing our media player.
-                mediaPlayer.prepare()
-
-                // on below line we are
-                // starting our media player.
-                mediaPlayer.start()
-
-            } catch (e: Exception) {
-
-                // on below line we are handling our exception.
-                e.printStackTrace()
-            }
-
+//            try {
+//                //Stop any  other music in queue
+//                mediaPlayer.reset()
+//                // on below line we are setting audio
+//                // source as audio url on below line.
+//                mediaPlayer.setDataSource(it.previewUrl)
+//
+//                // on below line we are
+//                // preparing our media player.
+//                mediaPlayer.prepare()
+//
+//                // on below line we are
+//                // starting our media player.
+//                mediaPlayer.start()
+//
+//            } catch (e: Exception) {
+//
+//                // on below line we are handling our exception.
+//                e.printStackTrace()
+//            }
+            //endregion
         }
 
     }
